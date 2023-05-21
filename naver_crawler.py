@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 from openpyxl import Workbook
-#from konlpy.tag import Kkma
+from konlpy.tag import Kkma
 
-#kkma = Kkma()
+kkma = Kkma()
 
 wb = Workbook()
 wb_1 = Workbook()
@@ -64,12 +64,12 @@ for page in range(1):
 
         txt = text_arr[i]
         txt = txt.replace('. ', '.\n').split('.\n')
-        # for j in txt:
-        #     hyungtaeso.append(kkma.pos(j))
-        # ws1.append([news_titles[0].text, links[i], text_arr[i]])
+        for j in txt:
+            hyungtaeso.append(kkma.pos(j))
+        ws1.append([news_titles[0].text, links[i], text_arr[i]])
 
-    # for j in hyungtaeso:
-    #     print(j)
+    for j in hyungtaeso:
+        print(j)
 
 # print(kkma.pos(txt[5]))
 # print(kkma.pos(txt[5])[1][0])
